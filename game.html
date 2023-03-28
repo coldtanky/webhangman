@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hangman</title>
+</head>
+<body>
+    <h1>Hangman</h1>
+    <p>Guess the word:</p>
+    <p>{{ hidden_word }}</p>
+    <p>Guesses: {{ guesses }}</p>
+    <p>Wrong guesses: {{ wrong_guesses }}/{{ max_wrong_guesses }}</p>
+    <form action="/guess" method="post">
+        <label for="guess">Guess a letter:</label>
+        <input type="text" id="guess" name="guess" maxlength="1" size="1" required>
+        <input type="hidden" name="word" value="{{ word }}">
+        <input type="hidden" name="hidden_word" value="{{ hidden_word }}">
+        <input type="hidden" name="guesses" value="{{ guesses }}">
+        <input type="hidden" name="wrong_guesses" value="{{ wrong_guesses }}">
+        <input type="hidden" name="max_wrong_guesses" value="{{ max_wrong_guesses }}">
+        <button type="submit">Guess</button>
+    </form>
+</body>
+</html>
